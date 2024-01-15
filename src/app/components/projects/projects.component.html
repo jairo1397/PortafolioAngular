@@ -1,5 +1,29 @@
-<section class="min-h-screen flex items-center justify-center animated slideInRight fast">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 m-32 z-0">
+<section class="flex flex-column items-center justify-center animated slideInRight fast"
+    style="background-color: #2d112b">
+    <div class="mt-24 mx-32">
+        <h2 class="text-5xl text-white">Experiencia Laboral</h2>
+        <p-timeline [value]="events" align="alternate" styleClass="customized-timeline">
+            <ng-template pTemplate="marker" let-event>
+                <span class="custom-marker shadow-2 rounded-lg bg-slate-200 p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+                    </svg>
+                </span>
+            </ng-template>
+            <ng-template pTemplate="content" let-event>
+                <p-card [header]="event.status" [subheader]="event.date" [style]="{background:'#FEDCC8'}">
+                    <h5 class="text-xl text-slate-400">{{ event.puesto }}</h5>
+                    <p>
+                        {{ event.description }}
+                    </p>
+                </p-card>
+            </ng-template>
+        </p-timeline>
+    </div>
+    <h2 class="text-5xl text-white mt-12">Projects</h2>
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mx-12 mt-8 z-0">
         @for (item of projectsListArray; track item.id) {
         <div class="card">
             <img src="{{item.imagen}}">
